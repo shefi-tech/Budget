@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/firstItem"
+        android:title="Add Daily Expense" />
+    <item
+        android:id="@+id/secondtItem"
+        android:title="Track Monthly Budget" />
+    <item
+        android:id="@+id/thirdItem"
+        android:title="Category Expense Summary" />
+    <item
+        android:id="@+id/forthItem"
+        android:title="Monthly Expense Chart" />
+</menu>
