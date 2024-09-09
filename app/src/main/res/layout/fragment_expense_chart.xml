@@ -9,14 +9,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="16dp"
+
         android:padding="16dp">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monthly budget is 10000"
+            android:textSize="20sp"
+            android:layout_marginTop="15dp"
+            android:textColor="#FF0000"
+            android:textStyle="bold"
+            />
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/selectMonthCategoryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/purple_700"
         android:padding="15dp"
+        android:layout_marginTop="8dp"
         android:text="Select Month" />
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/selectedMonthCategoryTextView"
@@ -42,12 +52,29 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="8dp" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Line Chart"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FF0000"
+            android:layout_marginTop="8dp"
+            />
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/expenseLineChart"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginTop="16dp" />
-
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bar Chart"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FF0000"
+            android:layout_marginTop="8dp"
+            />
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/expenseBarChart"
             android:layout_width="match_parent"

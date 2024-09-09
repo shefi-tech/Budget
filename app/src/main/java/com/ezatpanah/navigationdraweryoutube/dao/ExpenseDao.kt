@@ -53,7 +53,7 @@ interface ExpenseDao {
         WHERE category = :category 
         AND strftime('%Y-%m', datetime(date / 1000, 'unixepoch')) = :month
     """)
-    fun getMonthlyExpensesByCategoryAndMonth(category: String, month: String): LiveData<Double>
+    fun getMonthlyExpensesByCategoryAndMonth(month: String, category: String): LiveData<Double>
 
 
     @Query("""

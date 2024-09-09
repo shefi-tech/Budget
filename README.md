@@ -30,8 +30,6 @@ Follow these steps to set up and run the project locally:
 
 Step 1: Clone the Repository
 
-bash
-Copy code
 git clone https://github.com/shefi-tech/Budget.git
 cd Budget
 

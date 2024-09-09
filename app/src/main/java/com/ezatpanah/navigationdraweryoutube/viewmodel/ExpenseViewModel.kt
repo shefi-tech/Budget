@@ -44,8 +44,8 @@ class ExpenseViewModel(application: Application) : AndroidViewModel(application)
         return repository.getExpenseSummaryByCategoryAndMonth(category, month)
     }
 
-    fun getMonthlyExpensesByCategory(category: String, month: String): LiveData<Double> {
-        return repository.getMonthlyExpensesByCategoryAndMonth(category, month)
+    fun getMonthlyExpensesByCategory(month: String, category: String): LiveData<Double> {
+        return repository.getMonthlyExpensesByCategoryAndMonth(month, category)
     }
 
     fun getMonthlyChartByCategoryAndMonth(month: String): LiveData<List<Double>> {

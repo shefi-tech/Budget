@@ -59,16 +59,10 @@ class ExpenseChart : Fragment() {
         remainingBudgetCategoryTextView = view.findViewById(R.id.remainingBudgetCategoryTextView)
         expenseLineChart = view.findViewById(R.id.expenseLineChart)
         expenseBarChart = view.findViewById(R.id.expenseBarChart)
-
-        // Set up the ViewModel
         expenseViewModel = ViewModelProvider(this).get(ExpenseViewModel::class.java)
-
-        // Set up the click listener for the month-year picker
         view.findViewById<View>(R.id.selectMonthCategoryButton).setOnClickListener {
             showMonthYearPicker()
         }
-
-        // Initial data load
         updateExpenseSummary()
 
         return view
@@ -90,17 +84,25 @@ class ExpenseChart : Fragment() {
             calendar.get(Calendar.MONTH),
             calendar.get(Calendar.DAY_OF_MONTH)
         )
+        val currentYear = calendar.get(Calendar.YEAR)
+        val currentMonth = calendar.get(Calendar.MONTH)
 
-        datePickerDialog.datePicker.minDate = Calendar.getInstance().apply {
-            set(Calendar.YEAR, 1900)
-            set(Calendar.MONTH, 0)
-            set(Calendar.DAY_OF_MONTH, 1)
-        }.timeInMillis
+        calendar.set(Calendar.DAY_OF_MONTH, 1)
+        datePickerDialog.datePicker.minDate = calendar.timeInMillis // Start of the current month
 
-        datePickerDialog.datePicker.maxDate = System.currentTimeMillis()
+        calendar.set(Calendar.YEAR, currentYear)
+        calendar.set(Calendar.MONTH, currentMonth)
+        calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH))
+        datePickerDialog.datePicker.maxDate = calendar.timeInMillis // End of the current month
+
+        datePickerDialog.datePicker.calendarViewShown = false
+        datePickerDialog.datePicker.findViewById<View>(
+            resources.getIdentifier("day", "id", "android")
+        )?.visibility = View.GONE
 
         datePickerDialog.show()
     }
+
 
     private fun updateExpenseSummary() {
         expenseViewModel.getMonthlyChartByCategoryAndMonth(selectedYearMonth)
